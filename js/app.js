@@ -540,8 +540,7 @@ async function processTapQueue() {
         const bundleId = res?.id;
         if (bundleId) {
           setTapHint("Pending onchain…");
-          await waitForCallBundleFinal(await getProvider(), bundleId);
-
+          await waitForCallBundleFinal(provider, bundleId);
         } else {
           // If wallet didn't return an id, wait briefly to avoid rapid nonce conflicts.
           await sleep(1200);
